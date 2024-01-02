@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CS 424 Creative ana-lit-ics</title>
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.Default.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet.markercluster/dist/leaflet.markercluster-src.js"></script>
+    
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+
+    <link rel="stylesheet" href="./styles.css">
+    
+</head>
+
+<body>
+    <a href="index2.html">
+        <button>Go to Page 2</button>
+    </a>
+    <h1>CS 424 Creative ana-lit-ics - CDPH environmental complaints 2D</h1>
+    <h3>The following data we are taking is named “CDPH environmental complaints''. It was first created in 2012 and was last updated in September 2023. 
+        The set contains data dating back from January 1993 and was collected by the Department of Environment from 1993 to 2011. The DOE then disbanded 
+        in 2012 and transferred all its inspection, permitting, and enforcement authorities to the Department of Public Health.</h3>
+    <div class="grid">
+
+        <div class="whole_box">
+            <h2>Complaints  by Direction Over Time</h2>
+            <div class="visualization" id="vis9">
+            </div>
+        </div>
+
+        <div class="whole_box">
+            <h2>Total Complaints Over Years Lollipop</h2>
+            <div class="visualization" id="lollipop-chart"></div>
+        </div>
+
+      
+        <div id="map" class="visualization" style="display: none;"></div>
+        
+    <script src="./script.js"></script>
+</body>
+
+</html>

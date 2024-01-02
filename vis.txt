@@ -1,0 +1,97 @@
+
+//-------------TASK 2 LINKED VIEW VISUAL: MIGUEL------------------------------------------------
+const spec6 = {
+  $schema: "https://vega.github.io/schema/vega-lite/v5.json",
+  description: "Task 2: Linked View Visualization",
+  title: "Total Complaints of Top 4 Complaint Types from 2018 - 2022",
+  data: {
+    values: [
+      {"Year": 2018, "Complaint Type": "Noise", "Count": 110},
+      {"Year": 2018, "Complaint Type": "Vehicle", "Count": 80},
+      {"Year": 2018, "Complaint Type": "Water", "Count": 70},
+      {"Year": 2018, "Complaint Type": "Air Pollution", "Count": 45},
+      {"Year": 2019, "Complaint Type": "Noise", "Count": 125},
+      {"Year": 2019, "Complaint Type": "Vehicle", "Count": 90},
+      {"Year": 2019, "Complaint Type": "Water", "Count": 75},
+      {"Year": 2019, "Complaint Type": "Air Pollution", "Count": 55},
+      {"Year": 2020, "Complaint Type": "Noise", "Count": 120},
+      {"Year": 2020, "Complaint Type": "Vehicle", "Count": 85},
+      {"Year": 2020, "Complaint Type": "Water", "Count": 75},
+      {"Year": 2020, "Complaint Type": "Air Pollution", "Count": 50},
+      {"Year": 2021, "Complaint Type": "Noise", "Count": 150},
+      {"Year": 2021, "Complaint Type": "Vehicle", "Count": 95},
+      {"Year": 2021, "Complaint Type": "Water", "Count": 80},
+      {"Year": 2021, "Complaint Type": "Air Pollution", "Count": 65},
+      {"Year": 2022, "Complaint Type": "Noise", "Count": 130},
+      {"Year": 2022, "Complaint Type": "Vehicle", "Count": 100},
+      {"Year": 2022, "Complaint Type": "Water", "Count": 90},
+      {"Year": 2022, "Complaint Type": "Air Pollution", "Count": 70}
+    ]
+  },
+  vconcat: [
+    {
+      width: 400,
+      height: 200,
+      mark: "bar",
+      encoding: {
+        x: {
+          field: "Year",
+          type: "ordinal",
+          axis: { title: "Year" }
+        },
+        y: {
+          aggregate: "sum",
+          field: "Count",
+          type: "quantitative",
+          axis: { title: "Total Count" }
+        },
+        color: { field: "Complaint Type", type: "nominal" },
+        tooltip: [
+          { field: "Year", type: "ordinal", title: "Year" },
+          { field: "Complaint Type", type: "nominal", title: "Complaint Type" },
+          { field: "Count", type: "quantitative", title: "Total Count" }
+        ]
+      },
+      selection: {
+        yearSelection: {
+          type: "single",
+          fields: ["Year"],
+          bind: "scales",
+          init: { Year: 2020 }
+        }
+      }
+    },
+    {
+      width: 400,
+      height: 200,
+      mark: "rect",
+      encoding: {
+        x: {
+          field: "Complaint Type",
+          type: "nominal",
+          axis: { title: "Complaint Type" }
+        },
+        y: {
+          field: "Year",
+          type: "ordinal",
+          axis: { title: "Year" }
+        },
+        color: {
+          aggregate: "sum",
+          field: "Count",
+          type: "quantitative",
+          scale: { scheme: "viridis" }
+        },
+        tooltip: [
+          { field: "Year", type: "ordinal", title: "Year" },
+          { field: "Complaint Type", type: "nominal", title: "Complaint Type" },
+          { field: "Count", type: "quantitative", title: "Total Count" }
+        ]
+      },
+      transform: [
+        { filter: { selection: "yearSelection" } }
+      ]
+    }
+  ]
+};
+vegaEmbed("#vis6", spec6);

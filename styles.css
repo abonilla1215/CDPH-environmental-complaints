@@ -1,0 +1,48 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #faf0e6;
+}
+
+.visualization {
+    position: relative;
+    width: 685px;
+    height: 585px;
+    box-sizing: border-box;
+}
+
+h1 {
+    color: #66b38a;
+    font-family: 'Arial', sans-serif, cursive;
+}
+
+h2 {
+    color: #d1b392;
+    margin: 10px;
+    font-family: 'Arial', sans-serif;
+}
+
+h3 {
+    color: #967f67;
+    margin: 6px;
+    font-family: 'Arial', sans-serif;
+}
+
+button {
+    margin-top: 30px; /* Adjust the top margin as needed */
+    margin-left: 15px; /* Adjust the left margin as needed */
+}
+
+#vis6,
+#vis7,
+#vis8,
+#vis9,
+#vis,
+#lollipop-chart,
+#lineChart {
+    width: 100%;
+    max-width: 640px; /* Adjust the max-width as needed */
+    height: auto; /* Let the height be determined by the content */
+    margin-bottom: 20px;
+}
